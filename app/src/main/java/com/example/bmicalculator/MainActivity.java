@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,11 +18,42 @@ private Button button;
 private TextView result;
 private EditText h1;
 private EditText w1;
-
+ArrayAdapter<String> adapterItems;
+AutoCompleteTextView autoCompleteTextView;
+String[] Gender = {"MALE","FEMALE","OTHERS"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView2);
+        adapterItems = new ArrayAdapter<>(this,R.layout.dropdownmenu,Gender);
+        autoCompleteTextView.setAdapter(adapterItems);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                String item = adapterView.getItemAtPosition(i).toString();
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         button = findViewById(R.id.Calculate);
         result  = findViewById(R.id.result);

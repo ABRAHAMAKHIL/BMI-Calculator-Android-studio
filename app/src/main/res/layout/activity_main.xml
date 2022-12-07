@@ -25,8 +25,8 @@
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="Height in cm"
-        android:inputType="number"
+        android:hint="Height in m"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.786"
@@ -40,7 +40,7 @@
         android:layout_height="48dp"
         android:ems="10"
         android:hint="Weights in kg"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.808"
@@ -58,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.423"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -76,6 +77,7 @@
         android:id="@+id/result"
         android:layout_width="160dp"
         android:layout_height="97dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"

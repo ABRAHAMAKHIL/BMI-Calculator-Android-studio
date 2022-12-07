@@ -1,5 +1,7 @@
 package com.example.bmicalculator;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -63,10 +65,33 @@ String[] Gender = {"MALE","FEMALE","OTHERS"};
             @Override
             public void onClick(View view) {
                // Toast.makeText(MainActivity.this,"Hello",Toast.LENGTH_LONG).show();
-                int val =  Integer.parseInt(h1.getText().toString());
-                int val1 = Integer.parseInt(w1.getText().toString());
-                int BMI = val + (val1*val1);
-                result.setText("value "+BMI);
+                Double val =  Double.parseDouble(h1.getText().toString());
+                Double val1 = Double.parseDouble(w1.getText().toString());
+                Double BMI = Double.parseDouble(String.format("%.3f",(double) val1 / (val*val)));
+                if(BMI<18.5){
+
+                    Toast.makeText(MainActivity.this,"Underweight!!", LENGTH_SHORT).show();
+                }
+                else if(BMI<25){
+                    Toast.makeText(MainActivity.this,"Normal weight!!", LENGTH_SHORT).show();
+                }
+
+                else if(BMI <30){
+                    Toast.makeText(MainActivity.this,"Overweight!!", LENGTH_SHORT).show();
+                }
+                else{
+
+                    Toast.makeText(MainActivity.this,"Obesity!!", LENGTH_SHORT).show();
+
+                }
+
+
+                result.setText("BMI "+BMI);
+
+
+
+
+
             }
         });
 

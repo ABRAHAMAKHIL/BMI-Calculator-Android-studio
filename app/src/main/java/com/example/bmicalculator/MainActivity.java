@@ -4,6 +4,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,9 +18,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 private Button button;
+public static final String MSG = "KEY";
 private TextView result;
 private EditText h1;
 private EditText w1;
+private Button charts;
 ArrayAdapter<String> adapterItems;
 AutoCompleteTextView autoCompleteTextView;
 String[] Gender = {"MALE","FEMALE","OTHERS"};
@@ -55,6 +58,7 @@ String[] Gender = {"MALE","FEMALE","OTHERS"};
 
 
 
+    charts = findViewById(R.id.explore);
 
 
         button = findViewById(R.id.Calculate);
@@ -106,5 +110,15 @@ String[] Gender = {"MALE","FEMALE","OTHERS"};
 
 
 
+    public void Explore(View view){
+
+        Intent intent = new Intent(this,MainActivity3.class);
+        String Message = "GENDER "+autoCompleteTextView.getText().toString() +" "+"WEIGHT "+w1.getText().toString()+" "
+         +"HEIGHT "+ h1.getText().toString();
+        intent.putExtra(MSG,Message);
+        startActivity(intent);
+
+
+    }
 
 }
